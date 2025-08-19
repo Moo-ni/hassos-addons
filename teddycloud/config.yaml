@@ -8,18 +8,19 @@ ingress_stream: true
 panel_icon: mdi:teddy-bear
 image: ghcr.io/mrueg/teddycloud/{arch}
 arch:
-- aarch64
-- amd64
-- armv7
+  - aarch64
+  - amd64
+  - armv7
 init: false
 hassio_api: true
 ports:
-  80/tcp: null
+  80/tcp: 80
   443/tcp: 443
-  8443/tcp: null
+  8443/tcp: 8443
 ports_description:
   80/tcp: TeddyCloud Web Interface (http)
   443/tcp: TeddyCloud API
   8443/tcp: TeddyCloud Web Interface (https)
 map:
-- addon_config:rw
+  - addon_config:rw
+  - certs:rw  # neu: Mount für Zertifikate
